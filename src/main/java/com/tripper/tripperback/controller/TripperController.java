@@ -1,5 +1,7 @@
 package com.tripper.tripperback.controller;
 
+import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,9 +52,13 @@ public class TripperController {
         conn.disconnect();
         System.out.println(sb.toString());
 
-        return sb.toString();
+        // xml data json data로 파싱
+        JSONObject jsonObject = XML.toJSONObject(sb.toString());
+        String xmlJSONObjString = jsonObject.toString();
+        System.out.println(xmlJSONObjString);
 
-        // test
+
+        return xmlJSONObjString;
 
     }
 
@@ -90,6 +96,12 @@ public class TripperController {
         conn.disconnect();
         System.out.println(sb.toString());
 
-        return sb.toString();
+
+        // xml data json data로 파싱
+        JSONObject jsonObject = XML.toJSONObject(sb.toString());
+        String xmlJSONObjString = jsonObject.toString();
+        System.out.println(xmlJSONObjString);
+
+        return xmlJSONObjString;
     }
 }
