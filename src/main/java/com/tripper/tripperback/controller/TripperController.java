@@ -16,12 +16,11 @@ import java.net.URLEncoder;
 public class TripperController {
 
     /**
-     * 한국관광공사 API를 이용하여 여행 관련 데이터 출력
+     * 한국관광공사 관광정보 서비스 API
      * @return
      * @throws IOException
      */
     @GetMapping("/trip")
-    @ResponseBody
     public String getTripData() throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=9Nce9m3oDQvBXtfz1ggYcs6evpcOljdz0rinzr0ZGNYAD4c%2FbjYm4dvDUVSFhBoxg%2BEupf80yfWakLYtXBQJiA%3D%3D"); /*Service Key*/
@@ -55,6 +54,11 @@ public class TripperController {
 
     }
 
+    /**
+     * 한국광광공사 관광사진 정보 API
+     * @return
+     * @throws IOException
+     */
     @GetMapping("/tripImg")
     public String getTripImg() throws IOException{
         StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList"); /*URL*/
